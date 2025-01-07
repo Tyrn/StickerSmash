@@ -1,9 +1,10 @@
 import { View, StyleSheet } from "react-native";
 import * as ImagePicker from "expo-image-picker";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { type ImageSource } from "expo-image";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import * as MediaLibrary from "expo-media-library";
+import { captureRef } from "react-native-view-shot";
 
 import Button from "@/components/Button";
 import ImageViewer from "@/components/Viewer";
@@ -18,6 +19,7 @@ import PlaceholderImage from "@/assets/images/background-image.png";
 export default function Index() {
   const [selectedImage, setSelectedImage] =
     useState<string | undefined>(undefined);
+  const imageRef = useRef<View>(null);
   const [showAppOptions, setShowAppOptions] = useState<boolean>(false);
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
   const [pickedEmoji, setPickedEmoji] =
