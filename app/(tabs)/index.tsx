@@ -76,11 +76,13 @@ export default function Index() {
       }
     } else {
       try {
-        const dataUrl = await domtoimage.toJpeg(imageRef.current, {
-          quality: 0.95,
-          width: 320,
-          height: 440,
-        });
+        const dataUrl = await domtoimage.toJpeg(
+          imageRef.current as unknown as Node,
+          {
+            quality: 0.95,
+            width: 320,
+            height: 440,
+          });
 
         let link = document.createElement('a');
         link.download = 'sticker-smash.jpeg';
