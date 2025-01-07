@@ -66,13 +66,15 @@ export default function Index() {
     <GestureHandlerRootView style={styles.container}>
       <View style={styles.container}>
         <View style={styles.imageContainer}>
-          <ImageViewer
-            imgSource={PlaceholderImage}
-            selectedImage={selectedImage}
-          />
-          {pickedEmoji && <EmojiSticker
-            imageSize={40}
-            stickerSource={pickedEmoji} />}
+          <View ref={imageRef} collapsable={false}>
+            <ImageViewer
+              imgSource={PlaceholderImage}
+              selectedImage={selectedImage}
+            />
+            {pickedEmoji && <EmojiSticker
+              imageSize={40}
+              stickerSource={pickedEmoji} />}
+          </View>
         </View>
         {showAppOptions ? (
           <View style={styles.optionsContainer}>
